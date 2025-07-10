@@ -20,7 +20,7 @@ except Exception as e:
 
 ">> https://github.com/settings/personal-access-tokens"
 a = st.text_input("Enter a")
-b = st.text_imput("Enter b")
+b = st.text_input("Enter b")
 c = st.text_input("Enter c")
 
 if st.button("Upload to GitHub"):
