@@ -27,18 +27,13 @@ if st.button("Upload to GitHub"):
   df = pd.DataFrame([{"a":a, "b":b, "c":c}])
   csv = df.to_csv(index=False)
   content = base64.b64encode(csv.encode()).decode()
-
-  
-
   url = "https://api.github.com/repos/sanghethaa24/Draft/contents/data2.csv"
   headers = {"Authorization": f"token{st.secrets['github']['token']}"}
-
   payload = {
     "message" : "Add data.csv",
     "content" : content,
     "branch" : "main"
   }
-
   r = requests.put(url, headers=headers, json=payload)
   if r.status_code in [200, 201]:
     st.success("data Uploaded!")
